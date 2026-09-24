@@ -2,64 +2,76 @@
 <html>
 
 <head>
-    <title> Calculator App</title>
+    <meta charset="UTF-8">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1 id="display">0</h1>
-    <div class="row">
+
+    <div id="display">0</div>
+
+    <div class="top-row">
         <button id="modeToggle">DEG</button>
-        <button id="clear">cls</button>
+        <button id="historyButton">History</button>
+    </div>
+
+    <div id="historyPanel" style="display: none;" class="history-panel">
+        <ul id="historyList"></ul>
+    </div>
+
+    <div id="keypad">
+        <div class="row">
+            <button data-value="sin(" data-display="sin(">sin</button>
+            <button data-value="cos(" data-display="cos(">cos</button>
+            <button data-value="tan(" data-display="tan(">tan</button>
+            <button data-value="log10(" data-display="log(">log</button>
+            <button data-value="log(" data-display="ln(">ln</button>
+            <button data-value="sqrt(" data-display="√(">√</button>
+        </div>
+
+        <div class="row">
+            <button data-value="(" data-display="(">(</button>
+            <button data-value=")" data-display=")">)</button>
+            <button data-value="^" data-display="^">x^y</button>
+            <button data-value="!" data-display="!">x!</button>
+            <button data-value="pi" data-display="π">π</button>
+            <button data-value="e" data-display="e">e</button>
+        </div>
+
+        <div class="row">
+            <button data-value="7" data-display="7">7</button>
+            <button data-value="8" data-display="8">8</button>
+            <button data-value="9" data-display="9">9</button>
+            <button data-value="/" data-display="/">÷</button>
+        </div>
+
+        <div class="row">
+            <button data-value="4" data-display="4">4</button>
+            <button data-value="5" data-display="5">5</button>
+            <button data-value="6" data-display="6">6</button>
+            <button data-value="*" data-display="*">×</button>
+        </div>
+
+        <div class="row">
+            <button data-value="1" data-display="1">1</button>
+            <button data-value="2" data-display="2">2</button>
+            <button data-value="3" data-display="3">3</button>
+            <button data-value="-" data-display="-">−</button>
+        </div>
+
+        <div class="row">
+            <button data-value="0" data-display="0">0</button>
+            <button data-value="." data-display=".">.</button>
+            <button data-value="+" data-display="+">+</button>
+        </div>
+    </div>
+
+    <div class="bottom-row">
         <button id="backSpace">⌫</button>
-    </div>
-    <div class="row">
-        <button id="power">^</button>
-        <button id="factorial">!</button>
-        <button id="pi">π</button>
-        <button id="euler">e</button>
-    </div>
-
-    <div class="row">
-        <button id="log">log</button>
-        <button id="ln">ln</button>
-        <button id="sqrt">√</button>
-        <button id="openBracket">(</button>
-        <button id="closeBracket">)</button>
-
-    </div>
-    <div class="row">
-        <button id="sin">sin</button>
-        <button id="cos">cos</button>
-        <button id="tan">tan</button>
-    </div>
-    <div class="row">
-        <button id="one">1</button>
-        <button id="two">2</button>
-        <button id="three">3</button>
-        <button id="add">+</button>
-    </div>
-
-    <div class="row">
-        <button id="four">4</button>
-        <button id="five">5</button>
-        <button id="six">6</button>
-        <button id="subtract">-</button>
-    </div>
-
-    <div class="row">
-        <button id="seven">7</button>
-        <button id="eight">8</button>
-        <button id="nine">9</button>
-        <button id="divide">/</button>
-    </div>
-
-    <div class="row">
-        <button id="zero">0</button>
-        <button id="multiply">*</button>
-        <button id="decimal">.</button>
+        <button id="clear">C</button>
         <button id="equalTo">=</button>
     </div>
-
 
     <script src="script.js"></script>
 </body>

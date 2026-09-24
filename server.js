@@ -2,6 +2,7 @@ const express = require("express");
 const { evaluate } = require("mathjs");
 const app = express();
 let history = [];
+let historyId = 0;
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -40,11 +41,20 @@ app.post("/evaluate", function (req, res) {
     try {
         const result = evaluate(expression);
         const rounded = Math.round(result * 10000000000) / 10000000000;
-        history.push({ expression: expression, result: rounded });
+        history.push({ expression: expression, result: rounded, id: historyId });
+        historyId = historyId + 1;
         res.send(String(rounded));
     } catch (error) {
         res.status(400).send("Invalid expression");
     }
+});
+
+app.delete("/history/:id", function (req, res) {
+    const id = Number(req.params.id);
+    history = history.filter(function (entry) {
+        return entry.id !== id;
+    });
+    res.json(history);
 });
 
 app.get("/history", function (req, res) {
