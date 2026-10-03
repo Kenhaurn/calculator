@@ -1,9 +1,11 @@
 const express = require("express");
 const { evaluate } = require("mathjs");
 const app = express();
+const cors = require("cors");
 let history = [];
 let historyId = 0;
 
+app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
@@ -59,8 +61,7 @@ app.delete("/history/:id", function (req, res) {
 
 app.get("/history", function (req, res) {
     res.json(history);
-});
-
-app.listen(3000, function () {
-    console.log("Server is running on port 3000");
+}); \
+app.listen(process.env.PORT || 3000, function () {
+    console.log("Server is running");
 });
