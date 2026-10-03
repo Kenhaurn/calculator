@@ -45,7 +45,7 @@ function clearAll() {
 }
 
 function evaluateExpression() {
-    fetch("/evaluate", {
+    fetch("https://calculator-khsz.onrender.com/evaluate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ expression: applyDegreeMode(getExpressionString()) }),
@@ -60,7 +60,7 @@ function evaluateExpression() {
 }
 
 function loadHistory() {
-    fetch("/history")
+    fetch("https://calculator-khsz.onrender.com/history")
         .then(function (response) {
             return response.json();
         })
@@ -71,7 +71,7 @@ function loadHistory() {
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent = "delete";
                 deleteButton.addEventListener("click", function () {
-                    fetch("/history/" + data[i].id, { method: "DELETE" })
+                    fetch("https://calculator-khsz.onrender.com/history" + data[i].id, { method: "DELETE" })
                         .then(function () {
                             loadHistory();
                         });
