@@ -61,7 +61,8 @@ app.delete("/history/:id", function (req, res) {
 
 app.get("/history", function (req, res) {
     res.json(history);
-}); \
+});
+
 app.listen(process.env.PORT || 3000, function () {
     console.log("Server is running");
 });
